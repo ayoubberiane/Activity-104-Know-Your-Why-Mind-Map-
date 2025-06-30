@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Why - Leadership Mind Map by Ayoub Beriane</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #f8f9fa;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            font-size: 1.2rem;
+            color: #ffd700;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .central-theme {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        .central-theme h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .core-purpose {
+            font-size: 1.2rem;
+            color: #34495e;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .branches-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .branch {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .branch::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .branch:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .branch.visionary {
+            border-left-color: #3498db;
+        }
+
+        .branch.democratic {
+            border-left-color: #e74c3c;
+        }
+
+        .branch.coaching {
+            border-left-color: #f39c12;
+        }
+
+        .branch.transformational {
+            border-left-color: #9b59b6;
+        }
+
+        .branch h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .branch-item {
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .branch-item:last-child {
+            border-bottom: none;
+        }
+
+        .branch-item strong {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .values-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .values-section h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .value-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: scale(1.05);
+        }
+
+        .value-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .impact-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .impact-item {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .impact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+            color: white;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .branches-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">Know Your Why</h1>
+            <p class="subtitle">Leadership Mind Map</p>
+            <p class="author">Created by Ayoub Beriane</p>
+        </div>
+
+        <div class="central-theme">
+            <h2>My Leadership Why</h2>
+            <p class="core-purpose">
+                <strong>Core Purpose:</strong> To inspire and empower individuals to achieve their full potential, 
+                fostering a collaborative and innovative environment.
+            </p>
+        </div>
+
+        <div class="branches-container">
+            <div class="branch visionary">
+                <h3>🔮 Visionary Leadership</h3>
+                <div class="branch-item">
+                    <strong>Why:</strong> To guide teams towards a compelling future, driven by clear long-term goals and innovative thinking.
+                </div>
+                <div class="branch-item">
+                    <strong>How:</strong> By articulating a clear vision, encouraging creativity, and strategic planning.
+                </div>
+                <div class="branch-item">
+                    <strong>Connection to My Why:</strong> My desire to inspire and empower aligns with guiding others towards a shared, ambitious future.
+                </div>
+            </div>
+
+            <div class="branch democratic">
+                <h3>🤝 Democratic Leadership</h3>
+                <div class="branch-item">
+                    <strong>Why:</strong> To foster an inclusive environment where every voice is heard and valued, leading to collective ownership and better decisions.
+                </div>
+                <div class="branch-item">
+                    <strong>How:</strong> Through collaborative decision making, open communication, and valuing diverse perspectives.
+                </div>
+                <div class="branch-item">
+                    <strong>Connection to My Why:</strong> Empowering individuals means ensuring their active participation and valuing their contributions.
+                </div>
+            </div>
+
+            <div class="branch coaching">
+                <h3>🎯 Coaching Leadership</h3>
+                <div class="branch-item">
+                    <strong>Why:</strong> To develop the capabilities of team members, helping them grow personally and professionally.
+                </div>
+                <div class="branch-item">
+                    <strong>How:</strong> By providing guidance, feedback, and opportunities for skill development.
+                </div>
+                <div class="branch-item">
+                    <strong>Connection to My Why:</strong> Empowering individuals is directly linked to nurturing their growth and helping them overcome challenges.
+                </div>
+            </div>
+
+            <div class="branch transformational">
+                <h3>⚡ Transformational Leadership</h3>
+                <div class="branch-item">
+                    <strong>Why:</strong> To motivate and enable teams to transcend self-interest for the good of the group, driving significant change and innovation.
+                </div>
+                <div class="branch-item">
+                    <strong>How:</strong> By leading by example, fostering intellectual stimulation, and providing individualized consideration.
+                </div>
+                <div class="branch-item">
+                    <strong>Connection to My Why:</strong> Inspiring others to reach their full potential often involves transforming their perspectives and capabilities.
+                </div>
+            </div>
+        </div>
+
+        <div class="values-section">
+            <h3>💎 My Personal Values Driving My Leadership Why</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h4>Integrity</h4>
+                    <p>Leading with honesty and strong moral principles.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Empathy</h4>
+                    <p>Understanding and sharing the feelings of others.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Growth</h4>
+                    <p>A commitment to continuous learning and development for myself and my team.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Collaboration</h4>
+                    <p>Believing in the power of teamwork and collective effort.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="impact-section">
+            <h3>🎯 Impact I Aim to Make</h3>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <h4>For Individuals</h4>
+                    <p>Increased confidence, skill development, and job satisfaction.</p>
+                </div>
+                <div class="impact-item">
+                    <h4>For Teams</h4>
+                    <p>Enhanced cohesion, productivity, and innovation.</p>
+                </div>
+                <div class="impact-item">
+                    <h4>For Organization</h4>
+                    <p>Sustainable growth, positive culture, and achievement of strategic objectives.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>✨ This creative transformation showcases the power of knowing your leadership why ✨</p>
+            <p><strong>Done by Ayoub Beriane</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const branches = document.querySelectorAll('.branch');
+            
+            branches.forEach(branch => {
+                branch.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+
+            // Add floating animation to value items
+            const valueItems = document.querySelectorAll('.value-item');
+            valueItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+                item.style.animation = 'float 3s ease-in-out infinite';
+            });
+        });
+
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
